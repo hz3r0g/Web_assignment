@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>IT SHOP - Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .header {
+            background: #222;
+            color: #fff;
+            padding: 16px 0 16px 24px;
+            font-size: 22px;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+        }
+        .nav {
+            margin-left: 40px;
+        }
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 18px;
+            font-size: 16px;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            margin: 40px 60px;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 28px;
+            margin-bottom: 24px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+        th, td {
+            border: 1px solid #bbb;
+
+            padding: 12px 10px;
+            vertical-align: top;
+            text-align: center;
+        }
+        th {
+            background: #f5f5f5;
+            font-weight: bold;
+            text-align: center;
+        }
+        .product-img {
+            width: 180px;
+            height: 150px;
+            object-fit: contain;
+            display: block;
+        }
+        .product-title {
+            color: #d00;
+            font-weight: bold;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        .price {
+            font-weight: bold;
+        }
+        .in-stock {
+            color: #222;
+            font-weight: bold;
+        }
+        .out-stock {
+            color: #d00;
+            font-weight: bold;
+        }
+        .add-cart {
+            color: #2980d9;
+            text-decoration: none;
+        }
+        .add-cart:hover {
+            text-decoration: underline;
+        }
+        .flex_row
+        {
+            text-align: left;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        IT SHOP
+        <div class="nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Product</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Products</h1>
+        <h2>Reading Data from a File</h2>
+        <table>
+            <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Tình trạng</th>
+                <th>Thương hiệu</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td style="text-align:center;">1</td>
+                <td class="flex_row">
+                    <img src="/img/image-1.png" class="product-img">
+                    <div>
+                        <span class="product-title">LAPTOP HP PAVILION 14-CE3029TU (8WH94PA) (I5-1035G1)</span><br>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span>
+                    </div>
+                </td>
+                <td class="price">12,000,000 VND</td>
+                <td><span class="in-stock">Còn hàng</span><br>(10)</td>
+                <td>HP</td>
+                <td><a href="#" class="add-cart">Thêm vào giỏ hàng</a></td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">2</td>
+                <td class="flex_row">
+                    <img src="img/image-2.jpg" class="product-img">
+                    <div>
+                        <span class="product-title">LAPTOP LG GRAM 14ZD980-G.AX52A5 (I5-8250U)</span><br>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span>
+                    </div>
+                </td>
+                <td class="price">24,500,000 VND</td>
+                <td><span class="in-stock">Còn hàng</span><br>(45)</td>
+                <td>LG</td>
+                <td><a href="#" class="add-cart">Thêm vào giỏ hàng</a></td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">3</td>
+                <td class="flex_row">
+                    <img src="img/image-3.jpg" class="product-img">
+                    <div>
+                        <span class="product-title">LAPTOP ASUS EXPERTBOOK P5440FA-BM0557T (I7-8565U)</span><br>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span>                          
+                    </div>
+                </td>
+                <td class="price">20,800,000 VND</td>
+                <td><span class="in-stock">Còn hàng</span><br>(12)</td>
+                <td>ASUS</td>
+                <td><a href="#" class="add-cart">Thêm vào giỏ hàng</a></td>
+            </tr>
+            <tr>
+                <td style="text-align:center;">4</td>
+                <td class="flex_row">
+                    <img src="img/image-4.png" class="product-img">
+                    <div>
+                        <span class="product-title">LAPTOP MSI GF65 THIN 10SER-622VN (I7-10750H)</span><br>
+                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing.</span>
+                    </div>
+                </td>
+                <td class="price">33,900,000 VND</td>
+                <td><span class="out-stock">Hết hàng</span><br>(0)</td>
+                <td>MSI</td>
+                <td><span style="color:#bbb;">Thêm vào giỏ hàng</span></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
