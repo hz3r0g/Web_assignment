@@ -108,30 +108,37 @@
         </div>
     </div>
     <div class="container">
-        <h1 class="main-title">Cập nhật Sản phẩm</h1>
+        <h1 class="main-title">Thêm Sản phẩm</h1>
         <div class="subtitle">Product</div>
         <hr>
-        <form style="margin-left: 200px; width: 70%;">
+        <form action="/api/laptops/" method="POST" enctype="multipart/form-data">
             <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title">
+                <label for="id_lt">ID  </label>
+                <input type="text" class="form-control" id="id_lt" name="id_lt" required>
+              
+            </div>
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text"  id="title" name="title"  required>
             </div>
             <div class="form-group">
                 <label for="summary">Summary</label>
-                <input type="text" id="summary" name="summary" >
+                <textarea  id="summary" name="summary" rows="3" required></textarea>
             </div>
-            <div class="form-group">
-                <label for="imageUrl">ImageUrl</label>
-                <input type="text" id="imageUrl" name="imageUrl" multiple>
-            </div>
-            <div class="form-group">
-                <label for="price">Price</label>
-                <input type="number" id="price" name="price" >
-            </div>
-            <div class="form-group">
-                <label for="number">Number</label>
-                <input type="number" id="number" name="number" >
-            </div>
+          <div class="form-group">
+            <label for="image">imageURL</label>
+            <input type="file" id="image" name="image" accept="image/*">
+            
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number"  id="price" name="price"  min="0" required>
+          </div>
+          <div class="form-group">
+            <label for="number">Number</label>
+            <input type="number"  id="number" name="number"  min="0" required>
+          </div>
+          
             <button type="submit" class="create-btn">Create</button>
         </form>
     </div>

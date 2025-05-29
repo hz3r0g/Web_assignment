@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | Quản lý Laptop</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Quản lý Laptop</h1>
+    </div>
+  </header>
+  
+  <nav class="navbar">
+    <div class="container">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Trang chủ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/add">Thêm laptop mới</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h2><%= title %></h2>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-danger">
+          <p><%= message %></p>
+        </div>
+        <a href="/" class="btn btn-primary">Quay lại trang chủ</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

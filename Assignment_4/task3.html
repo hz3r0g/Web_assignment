@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task_3</title>
+    <title><%= title %> | Quản lý Laptop</title>
         <style>
         body {
             font-family: Arial, sans-serif;
@@ -180,6 +180,9 @@
             <h1 class="main-title">Danh sách sản phẩm</h1>
             <button class="create-btn" onclick="window.location.href='create_new.html'">Create New</button>
         </div>
+        <% if (laptops.length === 0) { %>
+          <p>Không có laptop nào. Hãy thêm laptop mới.</p>
+        <% } else { %>
         <table>
             <tr>
                 <th>STT</th>
@@ -188,75 +191,46 @@
                 <th>Tình trạng</th>
                 <th>Thao tác</th>
             </tr>
+            <% laptops.forEach(laptop => { %>}
             <tr>
-                <td style="text-align:center;">1</td>
+                <td style="text-align:center;"><%= laptop.ID_LT %></td>
                 <td class="flex_row">
-                    <img src="/img/image-1.png" class="product-img">
+                    <img src="<%= laptop.ImageUrl %>" class="product-img">
                     <div>
-                        <span class="product-title">LAPTOP HP PAVILION 14-CE3029TU (8WH94PA) (I5-1035G1)</span><br>
+                        <span class="product-title"><%= laptop.Title %></span><br>
                         <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span>
                     </div>
                 </td>
-                <td class="price">12,000,000 VND</td>
-                <td><span class="in-stock">Còn hàng</span><br>(10)</td>
+                <td class="price"><%= laptop.Price.toLocaleString() %></td>
+                <td><span class="in-stock">Còn hàng</span><br><%= laptop.Number %></td>
                 <td class="actions">
-                    <button class="action-btn edit-btn" onclick="window.location.href='update.html'">Edit</button>
-                    <button class="action-btn details-btn">Details</button>
-                    <button class="action-btn delete-btn">Delete</button>
+                    <a class="action-btn edit-btn" href="/edit/<%= laptop.ID_LT %>">Edit</a>
+                    <a class="action-btn details-btn" href="/laptop/<%= laptop.ID_LT %>">Details</a>
+                    <button onclick="deleteLaptop('<%= laptop.ID_LT %>')" class="action-btn delete-btn">Delete</button>
                 </td>
             </tr>
-            <tr>
-                <td style="text-align:center;">2</td>
-                <td class="flex_row">
-                    <img src="img/image-2.jpg" class="product-img">
-                    <div>
-                        <span class="product-title">LAPTOP LG GRAM 14ZD980-G.AX52A5 (I5-8250U)</span><br>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span>
-                    </div>
-                </td>
-                <td class="price">24,500,000 VND</td>
-                <td><span class="in-stock">Còn hàng</span><br>(45)</td>
-                <td class="actions">
-                    <button class="action-btn edit-btn" onclick="window.location.href='update.html'">Edit</button>
-                    <button class="action-btn details-btn">Details</button>
-                    <button class="action-btn delete-btn">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align:center;">3</td>
-                <td class="flex_row">
-                    <img src="img/image-3.jpg" class="product-img">
-                    <div>
-                        <span class="product-title">LAPTOP ASUS EXPERTBOOK P5440FA-BM0557T (I7-8565U)</span><br>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span>                          
-                    </div>
-                </td>
-                <td class="price">20,800,000 VND</td>
-                <td><span class="in-stock">Còn hàng</span><br>(12)</td>
-                <td class="actions">
-                    <button class="action-btn edit-btn" onclick="window.location.href='update.html'">Edit</button>
-                    <button class="action-btn details-btn">Details</button>
-                    <button class="action-btn delete-btn">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align:center;">4</td>
-                <td class="flex_row">
-                    <img src="img/image-4.png" class="product-img">
-                    <div>
-                        <span class="product-title">LAPTOP MSI GF65 THIN 10SER-622VN (I7-10750H)</span><br>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing.</span>
-                    </div>
-                </td>
-                <td class="price">33,900,000 VND</td>
-                <td><span class="out-stock">Hết hàng</span><br>(0)</td>
-                <td class="actions">
-                    <button class="action-btn edit-btn" onclick="window.location.href='update.html'">Edit</button>
-                    <button class="action-btn details-btn">Details</button>
-                    <button class="action-btn delete-btn">Delete</button>
-                </td>
-            </tr>
+            <% }) %>
+            
         </table>
+        <% } %>
     </div>
+    <script>
+    function deleteLaptop(id) {
+      if (confirm('Bạn có chắc chắn muốn xóa laptop này?')) {
+        fetch(`/api/laptops/${id}`, {
+          method: 'DELETE',
+        })
+        .then(response => response.json())
+        .then(data => {
+          alert(data.message);
+          location.reload();
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Đã xảy ra lỗi khi xóa laptop');
+        });
+      }
+    }
+  </script>
 </body>
 </html>
